@@ -23,17 +23,20 @@ public class CoffeeMenu {
 				break;
 			case 2:
 				selectCoffeeOne();
+				break;
 			case 3:
 				updateCoffee();
+				break;
 			case 4:
 				deleteCoffee();
+				break;
 			case 5:
 				selectCoffeeAll();
+				break;
 			case 6:
 				System.out.print("정말 종료하시겠습니까?(Y/N):");
 				if(sc.next().toUpperCase().charAt(0)=='Y') {
 					cm.close();
-					
 					return;
 				}else {
 					System.out.println("메뉴를 다시 불러옵니다.");
@@ -82,7 +85,7 @@ public class CoffeeMenu {
 		int orderNo=sc.nextInt();
 		try {
 			System.out.println("현재 주문 내역 : ");
-			System.out.println(cm.verifyCoffee(orderNo));
+			System.out.println(cm.verifyCoffee(orderNo-1));
 		}catch(CoffeeException e) {
 			System.out.println(e.getMessage());
 		}
@@ -96,7 +99,7 @@ public class CoffeeMenu {
 		try {
 			System.out.println("주문 내역 확인");
 			// 기존 주문 내역을 보여 준다
-			System.out.println(cm.verifyCoffee(orderNo));
+			System.out.println(cm.verifyCoffee(orderNo-1));
 			System.out.println("----메뉴----");
 			System.out.println("1. 아메리카노");
 			System.out.println("2. 카페라떼");
@@ -123,7 +126,7 @@ public class CoffeeMenu {
 			System.out.println(cm.verifyCoffee(orderNo-1));
 			System.out.print("정말 취소하겠습니까?(Y/N)");
 			if(sc.next().toUpperCase().charAt(0) == 'Y') {
-				cm.deleteCoffee(orderNo-1);//
+				cm.deleteCoffee(orderNo-1);// 여기가 실질적인 취소코드
 				System.out.println("주문이 정상적으로 취소되었습니다.");
 			}else {
 				System.out.println("메인으로 돌아갑니다.");

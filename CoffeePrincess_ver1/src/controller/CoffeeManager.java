@@ -38,7 +38,7 @@ public class CoffeeManager {
 	
 	public void updateCoffee(int orderNo,Coffee coffee) {
 		coffee.setOrderNo(orderNo);
-		orderList.set(orderNo, coffee);
+		orderList.set(orderNo-1, coffee);
 	}
 	
 	public void deleteCoffee(int idx) {
